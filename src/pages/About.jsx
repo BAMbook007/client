@@ -2,9 +2,11 @@ import React from "react";
 
 const About = () => {
   return (
-    <h1>
-      Это приложение создано Савиным Е.А.
-    </h1>
+    <div className="box">
+      <div className="about">
+        IIEM SOCIAL NETWORK
+      </div>      
+    </div>
   )
 }
 

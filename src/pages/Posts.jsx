@@ -50,13 +50,7 @@ function Posts() {
 
   return (
     <div className="App">
-      <MyButton style={{ marginTop: "30px" }} onClick={() => setModal(true)}>
-        Создать пользователя
-      </MyButton>
-      <MyModal visible={modal} setVisible={setModal}>
-        <PostForm create={createPost} />
-      </MyModal>
-
+      <PostForm create={createPost} />
       <hr style={{ margin: "15px 0" }} />
       <PostFilter filter={filter} setFilter={setFilter} />
       {postError && <h1>Произошла ошибка ${postError}</h1>}
@@ -74,7 +68,7 @@ function Posts() {
         <PostList
           remove={removePost}
           posts={sortedAndSearchedPosts}
-          title="Посты про JS"
+          title="Новости"
         />
       )}
       <Pagination page={page} changePage={changePage} totalPages={totalPages} />

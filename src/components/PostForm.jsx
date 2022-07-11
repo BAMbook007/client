@@ -22,13 +22,11 @@ const PostForm = ({create}) => {
   }
 
   return (
-    <div>
-      <form>
+      <form className="form">
         {/* Управляемый компонент */}
-        <MyInput value={post.title} onChange={e=> setPost({...post, title: e.target.value})} type="taxt" placeholder="Название поста"/>
-        <MyButton onClick={addNewPost}>Создать пост</MyButton>
+        <input className="input_post" value={post.title} onChange={e=> setPost({...post, title: e.target.value})} type="taxt" placeholder="Название поста" />
+        <button onClick={addNewPost}>Создать пост</button>
       </form>
-    </div>
   );
 };
 
