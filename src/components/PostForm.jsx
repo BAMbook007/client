@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const PostForm = ({create}) => {
-  const [post, setPost] = useState({title:''})
+  const [post, setPost] = useState({text:''})
 
   const addNewPost = async (e) => {
     
@@ -14,17 +14,18 @@ const PostForm = ({create}) => {
       ...post, id: Date.now()
     }
     create(newPost)
-    setPost({title:''})
-    await axios.post('http://localhost:7000/posts', {
-      title: post.title
-    })
-    
+    setPost({text:''})
+    await axios.post('http://localhost:7000/api/post', {
+      text: post.text
+    },
+    { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }
+    )
   }
 
   return (
       <form className="form">
         {/* Управляемый компонент */}
-        <input className="input_post" value={post.title} onChange={e=> setPost({...post, title: e.target.value})} type="taxt" placeholder="Название поста" />
+        <input className="input_post" value={post.text} onChange={e=> setPost({...post, text: e.target.value})} type="taxt" placeholder="Название поста" />
         <button onClick={addNewPost}>Создать пост</button>
       </form>
   );

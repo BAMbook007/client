@@ -1,16 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
-import { registration } from '../components/actions/user';
 import MyButton from '../components/UI/button/MyButton';
 import MyInput from '../components/UI/input/MyInput';
-import { useDispatch } from 'react-redux/es/exports';
-import {login} from "../components/actions/user"
-import { logout } from '../components/reducers/userReducer';
+import { useContext } from 'react';
+import { Context } from '../index';
+
 
 const Auth = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const dispatch = useDispatch()
+  const {store} = useContext(Context);
 
   return (
     <div className='box'>
@@ -18,9 +17,9 @@ const Auth = () => {
       <div>IIEM SOCIAL NETWORK</div>
       <MyInput value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="Введите email..." />
       <MyInput value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Введите пароль..." />
-      <MyButton onClick={() => registration(email, password)}>Регистрация</MyButton>
-      <MyButton onClick={() => dispatch(login(email, password))}>Войти</MyButton>
-      <MyButton onClick={() => dispatch(logout())}>Выйти</MyButton>
+      <MyButton onClick={() => store.registration(email, password)}>Регистрация</MyButton>
+      <MyButton onClick={() => store.login(email, password)}>Войти</MyButton>
+      <MyButton onClick={() => store.logout()}>Выйти</MyButton>
     </div>
     </div>
     

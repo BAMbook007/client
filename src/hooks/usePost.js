@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
+
 
 export const useSortedPost = (posts, sort) => {
   const sortedPosts = useMemo(() => {
@@ -15,7 +16,8 @@ export const usePosts = (posts, sort, query) => {
   const sortedPosts = useSortedPost(posts, sort);
 
   const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter(post => post.title.toLowerCase().includes(query.toLowerCase()))
+    console.log(posts)
+    return sortedPosts.filter(post => post.text.toLowerCase().includes(query.toLowerCase()))
   }, [query, sortedPosts])
 
   return sortedAndSearchedPosts;

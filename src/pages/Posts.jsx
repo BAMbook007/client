@@ -3,8 +3,6 @@ import { usePosts } from "../hooks/usePost";
 import PostFilter from "../components/PostFilter";
 import PostForm from "../components/PostForm";
 import PostList from "../components/PostList";
-import MyButton from "../components/UI/button/MyButton";
-import MyModal from "../components/UI/MyModal/MyModal";
 import "../styles/App.css";
 import PostService from "../API/PostService";
 import { useFetching } from "../hooks/useFetching";

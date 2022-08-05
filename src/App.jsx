@@ -1,19 +1,19 @@
-import { BrowserRouter, Link, Route, Routes, } from "react-router-dom";
-import About from "./pages/About";
-import Posts from "./pages/Posts";
+import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/UI/Navbar/Navbar";
 import AppRouter from "./components/AppRouter";
-import { useDispatch } from "react-redux";
-import { auth } from "./components/actions/user";
 import { useEffect } from "react";
+import { useContext } from "react";
+import { Context } from "./index";
+import { observer } from "mobx-react-lite";
 
 
 function App() {
-  const dispatch = useDispatch()
+  /* const {store} = useContext(Context);
 
-
-/* useEffect(() => {
-  dispatch(auth())
+useEffect(() => {
+  if (localStorage.getItem('token')) {
+    store.checkAuth()
+  }
 }, []) */
 
   return (
@@ -24,4 +24,4 @@ function App() {
   );
 };
 
-export default App;
+export default observer(App);
